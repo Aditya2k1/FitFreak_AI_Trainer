@@ -52,6 +52,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value]
 
 
+    #Function to calculate angle
     def calculate_angle(a, b, c):
         a = np.array(a)  # First
         b = np.array(b)  # Mid
