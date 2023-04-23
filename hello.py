@@ -1,3 +1,4 @@
 a = 10
 b = 10
-print(a+b)
+c="Kaam karega ke nahi laude??"
+print(c)
