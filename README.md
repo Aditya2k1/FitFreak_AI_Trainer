@@ -16,3 +16,4 @@ This repository contains the source code for the Fit-Freak AI trainer Project fo
 ## To Install PyCharm 
 ## I am important I think?
 ## Am I important?
+## Sandy a asshole 
