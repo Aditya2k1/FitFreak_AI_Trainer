@@ -12,3 +12,5 @@ This repository contains the source code for the Fit-Freak AI trainer Project fo
 ## To Install IntelliJ
 * Go to https://www.jetbrains.com/idea/download/#section=windows and click on Download button under Community edition
 * Install the exe file by keeping all the default values
+
+## To Install PyCharm 
