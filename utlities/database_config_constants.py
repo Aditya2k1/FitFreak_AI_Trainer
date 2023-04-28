@@ -1,0 +1,5 @@
+DATABASE_HOST = "localhost"
+DATABASE_NAME = "mysql"
+DATABASE_PORT = "3306"
+DATABASE_USER = "root"
+DATABASE_PASSWORD = "TeamOfFive"
