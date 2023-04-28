@@ -19,4 +19,7 @@ def sql_connector(host, database, user, password):
 def execute_query(connection, query: str):
     mycursor = connection.cursor()
     mycursor.execute(query)
+    connection.commit()
+    mycursor.close()
+    connection.close()
     return mycursor
