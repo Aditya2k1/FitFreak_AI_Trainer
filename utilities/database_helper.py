@@ -2,6 +2,14 @@ import mysql.connector as sql
 
 
 def sql_connector(host, database, user, password):
+    """
+      This functions helps to make connection with the sql server
+      :param host: host name for the sql server
+      :param database: database name for the sql server
+      :param user: username for the sql server
+      :param password: password for the sql server
+      :return: connection to sql server
+      """
     try:
         conn = sql.connect(host=host,
                            database=database,
@@ -17,9 +25,14 @@ def sql_connector(host, database, user, password):
 
 
 def execute_query(connection, query: str):
+    """
+    This function helps to execute the query
+    :param connection: established connection
+    :param query: query to execute
+    :return: executed query
+    """
     mycursor = connection.cursor()
     mycursor.execute(query)
     connection.commit()
     mycursor.close()
-    connection.close()
     return mycursor
