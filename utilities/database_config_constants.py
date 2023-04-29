@@ -1,0 +1,6 @@
+DB_HOST = "localhost"
+DB_PORT = "3306"
+DB_USER = "root"
+DB_PASSWORD = "TeamOf@5"
+DB_NAME = "fitness"
+DB_TABLE = "person"
