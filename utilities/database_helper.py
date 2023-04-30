@@ -3,13 +3,13 @@ import mysql.connector as sql
 
 def sql_connector(host, database, user, password):
     """
-      This functions helps to make connection with the sql server
-      :param host: host name for the sql server
-      :param database: database name for the sql server
-      :param user: username for the sql server
-      :param password: password for the sql server
-      :return: connection to sql server
-      """
+    This functions helps to make connection with the sql server
+    :param host: host name for the sql server
+    :param database: database name for the sql server
+    :param user: username for the sql server
+    :param password: password for the sql server
+    :return: connection to sql server
+    """
     try:
         conn = sql.connect(host=host,
                            database=database,
