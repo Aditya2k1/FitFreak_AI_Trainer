@@ -3,6 +3,8 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkcalendar import DateEntry
 
+from FitFreak_AI_Trainer.utilities.store_user_data import user_database
+
 root = Tk()
 root.title('Fitness AI Trainer')
 root.geometry('925x500+300+200')
@@ -29,6 +31,7 @@ def next_but():
         exercise=var.get()
         goal=goal_entry.get()
         screen.destroy()
+        user_database(name, tdate, exercise, goal)
 
     # 2.0Logo on top
     img = PhotoImage(file='FITNESS.png')
