@@ -1,6 +1,20 @@
-DB_HOST = "localhost"
-DB_PORT = "3306"
-DB_USER = "root"
-DB_PASSWORD = "TeamOf@5"
-DB_NAME = "fitness"
-DB_TABLE = "person"
+##############################
+#     Database Constants     #
+##############################
+db_host = "localhost"
+db_port = "3306"
+db_user = "root"
+db_password = "TeamOf@5"
+db_name = "fitness"
+db_table = "person"
+
+##############################
+#        UI Constants        #
+##############################
+title_name = "Fitness AI Trainer"
+title_geometry = "925x500+300+200"
+title_bg_color = "#e03481"
+title_fg_color = "#FF9E5E"
+button_bg = "#57a1f8"
+title_width = False
+title_height = False
