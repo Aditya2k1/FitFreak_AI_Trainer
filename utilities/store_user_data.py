@@ -67,6 +67,10 @@ def show_data(name):
 
 
 def create_database():
+    """
+    This function creates a new database in sql
+    :return: None
+    """
     query = f"""CREATE DATABASE {db_name}"""
     connection = sql_connector(db_host, '', db_user, db_password)
     execute_query(connection, query)
