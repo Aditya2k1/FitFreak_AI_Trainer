@@ -104,7 +104,7 @@ def next_button():
         :param args: *args
         :return: None
         """
-        if var.get() in ("Bicep Curls", "Squats", "View History"):
+        if var.get() in ("Bicep Curls", "Squats"):
             goal_entry.config(state='normal')
             goal_entry.insert(0, 'Goal')
         else:

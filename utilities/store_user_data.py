@@ -46,6 +46,7 @@ def user_database(name, date, exercise, goal):
 def show_data(name):
     """
     This function enables to show data for the returned user's name
+    'data' variable type: tuple
     :param name: name of the user to see data
     :return: None
     """
