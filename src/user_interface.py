@@ -4,8 +4,7 @@ from tkcalendar import DateEntry
 
 from FitFreak_AI_Trainer.utilities.config import title_name, title_geometry, title_width, title_height, \
     title_bg_color, title_fg_color, button_bg
-from FitFreak_AI_Trainer.utilities.store_user_data import user_database
-
+from FitFreak_AI_Trainer.utilities.store_user_data import user_database, show_data
 
 root = Tk()
 root.title(title_name)
@@ -42,8 +41,13 @@ def next_button():
         exercise = var.get()
         goal = goal_entry.get()
         screen.destroy()
-        # returns the values to make database entry
-        user_database(name, t_date, exercise, goal)
+        if exercise == "View History":
+            # shows the user history
+            show_data(name)
+        else:
+            # returns the values to make database entry
+            user_database(name, t_date, exercise, goal)
+
 
     # Logo on top
     favicon = PhotoImage(file='FITNESS.png')
@@ -100,7 +104,7 @@ def next_button():
         :param args: *args
         :return: None
         """
-        if var.get() in ("Bicep Curls", "Squats"):
+        if var.get() in ("Bicep Curls", "Squats", "View History"):
             goal_entry.config(state='normal')
             goal_entry.insert(0, 'Goal')
         else:

@@ -31,7 +31,7 @@ def execute_query(connection, query: str):
     :param query: query to execute
     :return: executed query
     """
-    mycursor = connection.cursor()
+    mycursor = connection.cursor(buffered=True)
     mycursor.execute(query)
     connection.commit()
     mycursor.close()

@@ -16,13 +16,13 @@ def user_database(name, date, exercise, goal):
     try:
         create_query = f"""CREATE TABLE {db_table}
                         (id int primary key auto_increment,
-                        name varchar(50),
-                        goal int,
-                        date varchar(30), 
-                        exercise varchar(50))"""
+                        Name varchar(50),
+                        Goal int,
+                        Date varchar(30), 
+                        Exercise varchar(50))"""
         execute_query(connection, create_query)
 
-        query = f"""INSERT INTO {db_table}(name,goal,date,exercise) values(('{name}'), ('{goal}'),
+        query = f"""INSERT INTO {db_table}(Name,Goal,Date,Exercise) values(('{name}'), ('{goal}'),
                 ('{date}'),('{exercise}'))"""
         print('---Table created successfully---')
         print('---Data Inserted---')
@@ -31,13 +31,19 @@ def user_database(name, date, exercise, goal):
         except Exception as ex:
             print(f'Unable to run query: {ex}')
         connection.close()
-    except:
-        print(f'==== Found table: {db_table} ====')
-        query = f"""INSERT INTO {db_table}(name,goal,date,exercise) values(('{name}'), ('{goal}'),
-                ('{date}'), ('{exercise}'))"""
-        print('---Data Inserted---')
-        try:
-            execute_query(connection, query)
-        except Exception as ex:
-            print(f'Unable to run query: {ex}')
-        connection.close()
+
+
+def show_data(name):
+    """
+    This function enables to show data for the returned user's name
+    :param name: name of the user to see data
+    :return: None
+    """
+    connection = sql_connector(db_host, db_name, db_user, db_password)
+    try:
+        query = f""" SELECT Name, Goal, Date, Exercise FROM {db_table} WHERE Name = '{name}' """
+        cursor = execute_query(connection, query)
+        for data in cursor:
+            print(data)
+    except Exception as ex:
+        print(f'Unable to execute query: {ex}')
