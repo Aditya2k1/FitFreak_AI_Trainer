@@ -31,6 +31,16 @@ def user_database(name, date, exercise, goal):
         except Exception as ex:
             print(f'Unable to run query: {ex}')
         connection.close()
+    except:
+        print(f'==== Found table: {db_table} ====')
+        query = f"""INSERT INTO {db_table}(Name,Goal,Date,Exercise) values(('{name}'), ('{goal}'),
+                ('{date}'), ('{exercise}'))"""
+        print('---Data Inserted---')
+        try:
+            execute_query(connection, query)
+        except Exception as ex:
+            print(f'Unable to run query: {ex}')
+        connection.close()
 
 
 def show_data(name):
