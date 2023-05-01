@@ -5,8 +5,8 @@ db_host = "localhost"
 db_port = "3306"
 db_user = "root"
 db_password = "TeamOf@5"
-db_name = "fitness"
-db_table = "person"
+db_name = "Fitness"
+db_table = "Person"
 
 ##############################
 #        UI Constants        #

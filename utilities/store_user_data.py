@@ -11,8 +11,14 @@ def user_database(name, date, exercise, goal):
     :param goal: User goal
     :return: None
     """
-    connection = sql_connector(db_host, db_name, db_user, db_password)
+    try:
+        create_database()
+        print(f'Database: {db_name} is created')
+    except:
+        print(f'Found database: {db_name}')
 
+    connection = sql_connector(db_host, db_name, db_user, db_password)
+    print(f'Connected to MySQL database: {db_name}')
     try:
         create_query = f"""CREATE TABLE {db_table}
                         (id int primary key auto_increment,
@@ -58,3 +64,9 @@ def show_data(name):
             print(data)
     except Exception as ex:
         print(f'Unable to execute query: {ex}')
+
+
+def create_database():
+    query = f"""CREATE DATABASE {db_name}"""
+    connection = sql_connector(db_host, '', db_user, db_password)
+    execute_query(connection, query)

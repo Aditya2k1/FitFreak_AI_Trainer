@@ -17,7 +17,6 @@ def sql_connector(host, database, user, password):
                            password=password)
 
         if conn.is_connected():
-            print(f'Connected to MySQL database: {database}')
             return conn
 
     except Exception as ex:
