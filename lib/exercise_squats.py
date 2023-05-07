@@ -1,0 +1,3 @@
+def squats():
+    print()
+    
