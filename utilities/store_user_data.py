@@ -1,6 +1,13 @@
 from FitFreak_AI_Trainer.utilities.file_constants import db_host, db_name, db_user, db_password, db_table
 from FitFreak_AI_Trainer.utilities.database_helper import sql_connector, execute_query
+#from FitFreak_AI_Trainer.src.user_interface import display_data
 
+#these r the new stuff that has been imported
+from tkinter import *
+from tkinter import ttk
+from FitFreak_AI_Trainer.utilities.file_constants import title_name, title_geometry, title_width, title_height, \
+    title_bg_color, title_fg_color, button_bg
+#and thats all that has been imported
 
 def user_database(name, date, exercise, goal):
     """
@@ -60,8 +67,47 @@ def show_data(name):
     try:
         query = f""" SELECT Name, Goal, Date, Exercise FROM {db_table} WHERE Name = '{name}' """
         cursor = execute_query(connection, query)
-        for data in cursor:
-            print(data)
+
+
+        #changes made from here
+        #for the display window
+        win = Tk()
+        win.title(title_name)
+        win.geometry(title_geometry)
+        win.configure(bg=title_bg_color)
+        win.iconbitmap('icon_f.ico')
+        win.resizable(title_width, title_height)
+        # Logo on top
+        logo_top = PhotoImage(file='FITNESS.png')
+        Label(win, image=logo_top, bg=title_bg_color).place(x=46, y=20)
+        style=ttk.Style()
+        style.theme_use("clam")
+        style.configure("Treeview",
+                        background="#e03481",
+                        foreground="black",
+                        bordercolor="#e03481",
+                        rowheight=25,
+                        fieldbackground="#e03481"
+                        )
+
+        tree = ttk.Treeview(win)
+        tree.place(x=60,y=120)
+        tree["columns"] = ("name", "goal","date","exercise")
+        tree["show"]='headings'
+        tree.heading("name", text="Name")
+        tree.heading("goal", text="Goal")
+        tree.heading("date", text="Date")
+        tree.heading("exercise", text="Exercise")
+        index = 0
+        for tuple_item in cursor:
+            tree.insert("", END, values=tuple_item, iid=index)
+            index += 1
+        win.mainloop()
+        #changes made till here
+
+
+        #for data in cursor:
+         #   print(data)
     except Exception as ex:
         print(f'Unable to execute query: {ex}')
 
