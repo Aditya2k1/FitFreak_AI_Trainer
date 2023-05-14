@@ -14,6 +14,27 @@ root.iconbitmap('icon_f.ico')
 root.resizable(title_width, title_height)
 
 
+'''def display_data(my_tuples):
+    #for the display window
+    win = Tk()
+    win.title(title_name)
+    win.geometry(title_geometry)
+    win.configure(bg=title_bg_color)
+    win.iconbitmap('icon_f.ico')
+    win.resizable(title_width, title_height)
+    tree = ttk.Treeview(win)
+    tree.pack()
+    tree["columns"] = ("name", "goal","date","exercise")
+    tree.heading("name", text="Name")
+    tree.heading("goal", text="Goal")
+    tree.heading("date", text="Date")
+    tree.heading("exercise", text="Exercise")
+
+    for tuple_item in my_tuples:
+        tree.insert("", END, values=tuple_item, iid=index)
+        index += 1
+    win.mainloop()'''
+
 def next_button():
     """
     This function executes after "Next" button is pressed
