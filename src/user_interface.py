@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 
 from FitFreak_AI_Trainer.lib.exercise_bicep_curls import bicep_curl
+from FitFreak_AI_Trainer.lib.exercise_squats import squats
 from FitFreak_AI_Trainer.utilities.file_constants import title_name, title_geometry, title_width, title_height, \
     title_bg_color, title_fg_color, button_bg
 from FitFreak_AI_Trainer.utilities.store_user_data import user_database, show_data
@@ -71,6 +72,11 @@ def next_button():
             user_database(name, t_date, exercise, goal)
             print("Taking you to the bicep curl window")
             bicep_curl()
+        elif exercise == "Squats":
+            # returns a bicep curl window
+            user_database(name, t_date, exercise, goal)
+            print("Taking you to squats window")
+            squats()
 
     # Logo on top
     favicon = PhotoImage(file='FITNESS.png')
