@@ -62,7 +62,7 @@ def show_data(name):
     """
     connection = sql_connector(db_host, db_name, db_user, db_password)
     try:
-        query = f""" SELECT Name, Goal, Date, Exercise, Performed FROM {db_table} WHERE Name = '{name}' """
+        query = f""" SELECT Name, Goal, Performed, Date, Exercise FROM {db_table} WHERE Name = '{name}' """
         cursor = execute_query(connection, query)
 
         # changes made from here
@@ -88,19 +88,19 @@ def show_data(name):
 
         tree = ttk.Treeview(win)
         tree.place(x=30, y=120)
-        tree["columns"] = ("name", "goal", "date", "exercise", "performed")
+        tree["columns"] = ("name", "goal", "performed", "date", "exercise")
         tree["show"] = 'headings'
         tree.heading("name", text="Name")
         tree.heading("goal", text="Goal")
+        tree.heading("performed", text="Performed")
         tree.heading("date", text="Date")
         tree.heading("exercise", text="Exercise")
-        tree.heading("performed", text="Performed")
         # adjust column width
         tree.column("name", width=260)
         tree.column("goal", width=150)
+        tree.column("performed", width=150)
         tree.column("date", width=150)
         tree.column("exercise", width=150)
-        tree.column("performed", width=150)
         index = 0
         for tuple_item in cursor:
             tree.insert("", END, values=tuple_item, iid=index)

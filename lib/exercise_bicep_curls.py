@@ -127,6 +127,7 @@ def bicep_curl():
                     if angle < 30 and stage == 'down':
                         stage = "up"
                         counter += 1
+                        print(counter)
                         engine.say(counter)
                         engine.runAndWait()
                 except:
