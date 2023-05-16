@@ -3,6 +3,8 @@ import pyttsx3
 import mediapipe as mp
 import numpy as np
 
+from FitFreak_AI_Trainer.utilities.store_user_data import insert_data_in_column
+
 
 def bicep_curl():
     engine = pyttsx3.init()
@@ -125,7 +127,6 @@ def bicep_curl():
                     if angle < 30 and stage == 'down':
                         stage = "up"
                         counter += 1
-                        print(counter)
                         engine.say(counter)
                         engine.runAndWait()
                 except:
@@ -159,3 +160,4 @@ def bicep_curl():
 
             cap.release()
             cv2.destroyAllWindows()
+        insert_data_in_column(counter)

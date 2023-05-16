@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
-
 from FitFreak_AI_Trainer.lib.exercise_bicep_curls import bicep_curl
 from FitFreak_AI_Trainer.lib.exercise_squats import squats
 from FitFreak_AI_Trainer.utilities.file_constants import title_name, title_geometry, title_width, title_height, \
@@ -70,12 +69,12 @@ def next_button():
         elif exercise == "Bicep Curls":
             # returns a bicep curl window
             user_database(name, t_date, exercise, goal)
-            print("Taking you to the bicep curl window")
+            print("Hold on! Taking you to the bicep curl window")
             bicep_curl()
         elif exercise == "Squats":
-            # returns a bicep curl window
+            # returns the bicep curl window
             user_database(name, t_date, exercise, goal)
-            print("Taking you to squats window")
+            print("Hold on! Taking you to squats window")
             squats()
 
     # Logo on top
