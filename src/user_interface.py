@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkcalendar import DateEntry
 
+from FitFreak_AI_Trainer.lib.exercise_bicep_curls import bicep_curl
 from FitFreak_AI_Trainer.utilities.file_constants import title_name, title_geometry, title_width, title_height, \
     title_bg_color, title_fg_color, button_bg
 from FitFreak_AI_Trainer.utilities.store_user_data import user_database, show_data
@@ -13,27 +14,27 @@ root.configure(bg=title_bg_color)
 root.iconbitmap('icon_f.ico')
 root.resizable(title_width, title_height)
 
+# def display_data(my_tuples):
+#     #for the display window
+#     win = Tk()
+#     win.title(title_name)
+#     win.geometry(title_geometry)
+#     win.configure(bg=title_bg_color)
+#     win.iconbitmap('icon_f.ico')
+#     win.resizable(title_width, title_height)
+#     tree = ttk.Treeview(win)
+#     tree.pack()
+#     tree["columns"] = ("name", "goal","date","exercise")
+#     tree.heading("name", text="Name")
+#     tree.heading("goal", text="Goal")
+#     tree.heading("date", text="Date")
+#     tree.heading("exercise", text="Exercise")
+#
+#     for tuple_item in my_tuples:
+#         tree.insert("", END, values=tuple_item, iid=index)
+#         index += 1
+#     win.mainloop()
 
-'''def display_data(my_tuples):
-    #for the display window
-    win = Tk()
-    win.title(title_name)
-    win.geometry(title_geometry)
-    win.configure(bg=title_bg_color)
-    win.iconbitmap('icon_f.ico')
-    win.resizable(title_width, title_height)
-    tree = ttk.Treeview(win)
-    tree.pack()
-    tree["columns"] = ("name", "goal","date","exercise")
-    tree.heading("name", text="Name")
-    tree.heading("goal", text="Goal")
-    tree.heading("date", text="Date")
-    tree.heading("exercise", text="Exercise")
-
-    for tuple_item in my_tuples:
-        tree.insert("", END, values=tuple_item, iid=index)
-        index += 1
-    win.mainloop()'''
 
 def next_button():
     """
@@ -65,10 +66,11 @@ def next_button():
         if exercise == "View History":
             # shows the user history
             show_data(name)
-        else:
-            # returns the values to make database entry
+        elif exercise == "Bicep Curls":
+            # returns a bicep curl window
             user_database(name, t_date, exercise, goal)
-
+            print("Taking you to the bicep curl window")
+            bicep_curl()
 
     # Logo on top
     favicon = PhotoImage(file='FITNESS.png')

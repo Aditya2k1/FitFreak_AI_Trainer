@@ -1,17 +1,18 @@
 import cv2
-#import threading
 import pyttsx3
 import mediapipe as mp
 import numpy as np
-engine=pyttsx3.init()
+
+engine = pyttsx3.init()
 engine.setProperty('rate', 200)
 
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
-# VIDEO FEED
 
+# VIDEO FEED
 cap = cv2.VideoCapture(0)
-## Setup mediapipe instance
+
+# Setup mediapipe instance
 with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
     while cap.isOpened():
         ret, frame = cap.read()
@@ -30,12 +31,12 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         # Extract landmarks
         try:
             landmarks = results.pose_landmarks.landmark
-            #print(landmarks)
+            # print(landmarks)
         except:
             pass
 
         # Render detections
-        mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,)
+        mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS, )
 
         cv2.imshow('Mediapipe Feed', image)
 
@@ -45,14 +46,14 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     cap.release()
     cv2.destroyAllWindows()
     len(landmarks)
-    #for lndmrk in (0,1):
-#    print(lndmrk)
+    # for lndmrk in (0,1):
+    #    print(lndmrk)
     landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].visibility
     landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value]
     landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value]
 
 
-    #Function to calculate angle
+    # Function to calculate angle
     def calculate_angle(a, b, c):
         a = np.array(a)  # First
         b = np.array(b)  # Mid
@@ -82,7 +83,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     counter = 0
     stage = None
 
-    ## Setup mediapipe instance
+    # Setup mediapipe instance
     with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
         while cap.isOpened():
             ret, frame = cap.read()
@@ -150,7 +151,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                         cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 2, cv2.LINE_AA)
 
             # Render detections
-            mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,)
+            mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS, )
 
             cv2.imshow('Mediapipe Feed', image)
 

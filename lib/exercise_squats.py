@@ -1,3 +1,3 @@
 def squats():
-    print()
+    print("====Sorry for inconvenience, yet to be implemented====")
     
