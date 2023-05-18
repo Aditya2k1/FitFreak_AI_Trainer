@@ -7,6 +7,10 @@ from FitFreak_AI_Trainer.utilities.store_user_data import insert_data_in_column
 
 
 def bicep_curl():
+    """
+    This function helps user to track the bicep curls exercise by opening the camera
+    :return: None
+    """
     engine = pyttsx3.init()
     engine.setProperty('rate', 200)
 
